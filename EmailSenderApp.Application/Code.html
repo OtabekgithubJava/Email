@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+</head>
+<body>
+
+<h2>User Registration</h2>
+
+<form id="registrationForm" action="/process_registration.php" method="post" onsubmit="generateVerificationCode()">
+    <!-- Add your form fields for registration -->
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <label for="username"></label>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <!-- Display the generated verification code -->
+    <input type="text" id="verification_code" name="verification_code" readonly>
+
+    <!-- Add a button to submit the form -->
+    <button type="submit">Register</button>
+</form>
+
+<script>
+    function generateVerificationCode() {
+        // Generate a random 5-character verification code using JavaScript
+        var verificationCode = Math.random().toString(36).substring(2, 7).toUpperCase();
+
+        // Set the generated code to the input field
+        document.getElementById("verification_code").value = verificationCode;
+
+        // Return true to allow the form submission
+        return true;
+    }
+</script>
+
+<h2>Verification Code: CR7</h2>
+
+</body>
+</html>
